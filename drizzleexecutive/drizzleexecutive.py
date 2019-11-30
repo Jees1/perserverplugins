@@ -23,8 +23,8 @@ class drizzleExecutive(commands.Cog):
         )
         embed.set_author(name=str(ctx.author), icon_url=str(ctx.author.avatar_url))
         embed.description = """
+                > - | Executive Committees (<@553384447462998040>, <@405781220090314763>, <@298014369533657090>, <@526102961969954816>)
                 > Head of Discord Moderation - Jees1 (<@349899849937846273>)
-                > Head QOTD - Nick (<@561923789152190466>)
                 > Head of Alliances - Max | temporarily (<@553384447462998040>)
             """
         embed.color = self.bot.main_color
