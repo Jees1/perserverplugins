@@ -16,7 +16,7 @@ class drizzleExecutive(commands.Cog):
 
     @commands.command(aliases=["executive"])
     @checks.has_permissions(PermissionLevel.REGULAR)
-    async def ranks(self, ctx):
+    async def executives(self, ctx):
         """Send the executives of Drizzle Hotels"""
         embed = discord.Embed(
             title="Drizzle Hotel Executives"
