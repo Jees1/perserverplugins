@@ -22,7 +22,8 @@ class info(commands.Cog):
             title="Drizzle Hotel Executives"
         )
         embed.set_author(name=str(ctx.author), icon_url=str(ctx.author.avatar_url))
-        embed.description = """hei
+        embed.description = """
+            Hello
             """
         embed.color = self.bot.main_color
         return await ctx.send(embed=embed)
