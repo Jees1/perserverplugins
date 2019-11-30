@@ -22,9 +22,9 @@ class drizzleExecutive(commands.Cog):
             title="Drizzle Hotel Executives"
         )
         embed.description = """
-                Head of Discord Moderation - Jees1 (<@349899849937846273>)
-                Head QOTD - Nick (<@561923789152190466>)
-                Head of Alliances - Max | temporarily (<@553384447462998040>)
+                > Head of Discord Moderation - Jees1 (<@349899849937846273>)
+                > Head QOTD - Nick (<@561923789152190466>)
+                > Head of Alliances - Max | temporarily (<@553384447462998040>)
             """
         embed.color = self.bot.main_color
         return await ctx.send(embed=embed)
