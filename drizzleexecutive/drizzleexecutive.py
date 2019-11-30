@@ -30,4 +30,4 @@ class drizzleExecutive(commands.Cog):
         return await ctx.send(embed=embed)
 
 def setup(bot):
-    bot.add_cog(drizzleRanks(bot))
+    bot.add_cog(drizzleExecutive(bot))
