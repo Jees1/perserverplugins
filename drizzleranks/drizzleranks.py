@@ -21,6 +21,7 @@ class drizzleRanks(commands.Cog):
         embed = discord.Embed(
             title="Drizzle Hotel Ranks"
         )
+        embed.set_author(name=str(ctx.author), icon_url=str(ctx.author.avatar_url))
         embed.description = """
                 > - | Owner __255__
                 > - | Co-Owner __254__
