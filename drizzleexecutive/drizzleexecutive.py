@@ -21,6 +21,7 @@ class drizzleExecutive(commands.Cog):
         embed = discord.Embed(
             title="Drizzle Hotel Executives"
         )
+        embed.set_author(name=str(ctx.author), icon_url=str(ctx.author.avatar_url))
         embed.description = """
                 > Head of Discord Moderation - Jees1 (<@349899849937846273>)
                 > Head QOTD - Nick (<@561923789152190466>)
