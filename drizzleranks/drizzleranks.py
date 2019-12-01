@@ -23,25 +23,11 @@ class drizzleRanks(commands.Cog):
         )
         embed.set_author(name=str(ctx.author), icon_url=str(ctx.author.avatar_url))
         embed.description = """
-                > - | Owner __255__
-                > - | Co-Owner __254__
-                > - | Development Team __253__
-                > - | Group Managers __252__
-                > - | Overseers __251__
-                > Chairperson __250__
-                > Vice-Chairperson __13__
-                > Executive __12__
-                > Public Relations Officer __11__
-                > Board of Directors __10__
-                > Shift Manager __9__
-                > Supervisor __8__
-                > Security __7__
-                > Receptionist __6__
-                > Trainee __5__
-                > Allied Represantive __4__
-                > - | Noted Guest __3__
-                > X | Suspended __2__
-                > Hotel Guest __1__
+                {
+    "embed": {
+        "description": "- | Owner __255__\n- | Co-Owner __254__\n- | Development Team __253__\n- | Group Managers __252__\n- | Overseers __251__\nChairperson __250__\nVice-Chairperson __13__\nExecutive __12__\nPublic Relations Officer __11__\nBoard of Directors __10__\nShift Manager __9__\nSupervisor __8__\nSecurity __7__\nReceptionist __6__\nTrainee __5__\nAllied Represantive __4__\n- | Noted Guest __3__\nX | Suspended __2__\nHotel Guest __1__"
+    }
+}
             """
         embed.color = self.bot.main_color
         return await ctx.send(embed=embed)
