@@ -23,7 +23,7 @@ class info(commands.Cog):
         )
         embed.set_author(name=str(ctx.author), icon_url=str(ctx.author.avatar_url))
         embed.description = """
-             Hello
+             *This bot was setup for Drizzle to help the moderation team in communication with our users.*
             """
         embed.color = self.bot.main_color
         return await ctx.send(embed=embed)
