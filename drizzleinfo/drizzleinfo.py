@@ -32,6 +32,9 @@ Stephen,
 Piyush,
 DazVise,
 Jees1.
+
+**Who to contact for bugs?**
+Contact Jees1 (<@349899849937846273>) for bugs.
             """
         embed.color = self.bot.main_color
         return await ctx.send(embed=embed)
