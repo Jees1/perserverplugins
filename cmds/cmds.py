@@ -19,7 +19,7 @@ class cmds(commands.Cog):
     async def cmds(self, ctx):
         """"""
         embed = discord.Embed(
-            title="My commands"
+            title=" "
         )
         embed.set_author(name=str(ctx.author), icon_url=str(ctx.author.avatar_url))
         embed.description = """
