@@ -25,6 +25,7 @@ class cmds(commands.Cog):
         embed.description = """
                 You can view my commands [here.](https://github.com/DrizzleAssistant/DrizzleSupport/blob/master/commands.md)
             """
+        embed.set_footer(text="Type -credits to view the bot credits.")
         embed.color = self.bot.main_color
         return await ctx.send(embed=embed)
 
