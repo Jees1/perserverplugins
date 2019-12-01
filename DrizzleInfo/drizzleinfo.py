@@ -6,7 +6,7 @@ from core import checks
 from core.models import PermissionLevel
 
 
-class info(commands.Cog):
+class DrizzleInfo(commands.Cog):
     """
     A sample set of rules you can use when your first starting your server to save time.
     """
