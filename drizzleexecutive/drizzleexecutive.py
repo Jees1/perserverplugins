@@ -23,7 +23,7 @@ class drizzleExecutive(commands.Cog):
         )
         embed.set_author(name=str(ctx.author), icon_url=str(ctx.author.avatar_url))
         embed.description = """
-                - | Executive Committees (<@!553384447462998040>, <@!405781220090314763>, <@!298014369533657090>, <@!497582356064894997>)\nHead of Discord Moderation - Jees1 (<@!349899849937846273>)\nHead of Alliances - Upsetioz (<@!466723493837537280>)
+                You can view the Drizzle  Support Privacy Policy [here.](https://gist.github.com/Jees1/93f8b515e921ee4475d63fa0ed47ad82#file-privacypolicy-md)
             """
         embed.color = self.bot.main_color
         return await ctx.send(embed=embed)
