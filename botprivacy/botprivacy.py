@@ -8,7 +8,7 @@ from core.models import PermissionLevel
 
 class botPrivacy(commands.Cog):
     """
-    A sample set of rules you can use when your first starting your server to save time.
+    The privacy policy of Drizzle Support
     """
 
     def __init__(self, bot):
