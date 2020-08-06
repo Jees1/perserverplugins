@@ -6,7 +6,7 @@ from core import checks
 from core.models import PermissionLevel
 
 
-class privacy(commands.Cog):
+class botprivacy(commands.Cog):
     """
     Show the link to the Drizzle Support Privacy Policy.
     """
@@ -29,4 +29,4 @@ class privacy(commands.Cog):
         return await ctx.send(embed=embed)
 
 def setup(bot):
-    bot.add_cog(privacy(bot))
+    bot.add_cog(botprivacy(bot))
