@@ -14,12 +14,12 @@ class drizzleExecutive(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(aliases=["executive"])
+    @commands.command(aliases=["myprivacy"])
     @checks.has_permissions(PermissionLevel.REGULAR)
-    async def executives(self, ctx):
-        """Send the executives of Drizzle Hotels"""
+    async def privacy(self, ctx):
+        """Send the Privacy Policy of Drizzle Support"""
         embed = discord.Embed(
-            title="Drizzle Hotel Executives"
+            title="Drizzle Support Privacy Policy"
         )
         embed.set_author(name=str(ctx.author), icon_url=str(ctx.author.avatar_url))
         embed.description = """
