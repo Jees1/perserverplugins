@@ -15,7 +15,7 @@ class botPrivacy(commands.Cog):
         self.bot = bot
 
     @commands.command(aliases=["myprivacy"])
-    @checks.has_permissions(PermissionLevel.NONE)
+    @checks.has_permissions(PermissionLevel.REGULAR)
     async def privacy(self, ctx):
         """Send the Privacy Policy of Drizzle Support"""
         embed = discord.Embed(
