@@ -25,7 +25,6 @@ class privacy(commands.Cog):
         embed.description = """
                 You can view information about your privacy [here.](https://gist.github.com/Jees1/93f8b515e921ee4475d63fa0ed47ad82#file-privacypolicy-md)
             """
-        embed.set_footer(text="Type -credits to view the bot credits.")
         embed.color = self.bot.main_color
         return await ctx.send(embed=embed)
 
