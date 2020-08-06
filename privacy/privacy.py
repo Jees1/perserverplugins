@@ -6,28 +6,28 @@ from core import checks
 from core.models import PermissionLevel
 
 
-class cmds(commands.Cog):
+class privacy(commands.Cog):
     """
-    A sample set of rules you can use when your first starting your server to save time.
+    Show the link to the Drizzle Support Privacy Policy.
     """
 
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(aliases=["commands"])
+    @commands.command(aliases=["privacy"])
     @checks.has_permissions(PermissionLevel.REGULAR)
-    async def cmds(self, ctx):
+    async def privacy(self, ctx):
         """"""
         embed = discord.Embed(
-            title=" "
+            title="Drizzle Support Privacy Policy"
         )
         embed.set_author(name=str(ctx.author), icon_url=str(ctx.author.avatar_url))
         embed.description = """
-                You can view my commands [here.](https://github.com/DrizzleAssistant/DrizzleSupport/blob/master/commands.md)
+                You can view information about your privacy [here.](https://gist.github.com/Jees1/93f8b515e921ee4475d63fa0ed47ad82#file-privacypolicy-md)
             """
         embed.set_footer(text="Type -credits to view the bot credits.")
         embed.color = self.bot.main_color
         return await ctx.send(embed=embed)
 
 def setup(bot):
-    bot.add_cog(cmds(bot))
+    bot.add_cog(privacy(bot))
