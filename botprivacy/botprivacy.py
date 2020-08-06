@@ -6,7 +6,7 @@ from core import checks
 from core.models import PermissionLevel
 
 
-class drizzleExecutive(commands.Cog):
+class botPrivacy(commands.Cog):
     """
     A sample set of rules you can use when your first starting your server to save time.
     """
@@ -29,4 +29,4 @@ class drizzleExecutive(commands.Cog):
         return await ctx.send(embed=embed)
 
 def setup(bot):
-    bot.add_cog(drizzleExecutive(bot))
+    bot.add_cog(botPrivacy(bot))
