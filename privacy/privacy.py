@@ -14,7 +14,7 @@ class privacy(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(aliases=["privacy"])
+    @commands.command(aliases=["myprivacy"])
     @checks.has_permissions(PermissionLevel.REGULAR)
     async def privacy(self, ctx):
         """"""
