@@ -23,13 +23,10 @@ class neededStaff(commands.Cog):
             title="Staff Request"
         )
         embed.set_author(name=str(ctx.author), icon_url=str(ctx.author.avatar_url))
-        embed.description = """
-                Hey, Staff! We are in need of staff at the hotel.
-            """
-        embed.add_field(name="Information", value=f"Staff are needed, coming and assisting will be greatly appreciated.", inline=False)
+        embed.add_field(name="Information", value=f"Staff are needed at the hotel! Please come on down if you can.", inline=False)
         embed.add_field(name="Link", value=f"[Click Here](https://www.roblox.com/games/1325088285)", inline=False)
         embed.color = self.bot.main_color
-        embed.set_image(url="https://t4.rbxcdn.com/a0dce4c45934d54de5372254dcec36a9")
+        embed.set_thumbnail(url="https://t5.rbxcdn.com/35d321e763a07069d09beebf4324f0fd")
         await ctx.send("<a:check:742680789262663710> | Staff successfully requested.")
         return await channel.send("@here", embed=embed)
 
