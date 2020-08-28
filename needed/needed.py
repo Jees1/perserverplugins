@@ -27,7 +27,7 @@ class neededStaff(commands.Cog):
                 Hey, Staff! We are in need of staff at the hotel.
             """
         embed.add_field(name="Information", value=f"Staff are needed, coming and assisting will be greatly appreciated.", inline=False)
-        embed.add_field(name="Link", value=f"https://www.roblox.com/games/1325088285", inline=False)
+        embed.add_field(name="Link", value=f"[Hotel](https://www.roblox.com/games/1325088285)", inline=False)
         embed.color = self.bot.main_color
         await ctx.send("<a:check:742680789262663710> | Staff successfully requested.")
         return await channel.send("@here", embed=embed)
