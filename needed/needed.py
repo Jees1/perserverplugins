@@ -6,7 +6,7 @@ from core import checks
 from core.models import PermissionLevel
 
 
-class botPrivacy(commands.Cog):
+class neededStaff(commands.Cog):
     """
     Staff are needed at the hotel/training!
     """
@@ -15,18 +15,18 @@ class botPrivacy(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    @checks.has_permissions(PermissionLevel.REGULAR)
-    async def needed(self, ctx):
+    @checks.has_permissions(PermissionLevel.OWNER)
+    async def neededstaff(self, ctx):
         """Send the Privacy Policy of Drizzle Support"""
         embed = discord.Embed(
-            title="Drizzle Support Privacy Policy"
+            title="Staff Request"
         )
         embed.set_author(name=str(ctx.author), icon_url=str(ctx.author.avatar_url))
         embed.description = """
-                You can view the Drizzle  Support Privacy Policy [here.](https://gist.github.com/Jees1/93f8b515e921ee4475d63fa0ed47ad82#file-privacypolicy-md)
+                Hey, Staff! We are in need of staff at the hotel. Coming and assisting will be greatly appreciated.
             """
         embed.color = self.bot.main_color
-        return await ctx.send(embed=embed)
+        return await ctx.send("@here", embed=embed)
 
 def setup(bot):
-    bot.add_cog(botPrivacy(bot))
+    bot.add_cog(neededStaff(bot))
