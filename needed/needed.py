@@ -18,7 +18,7 @@ class neededStaff(commands.Cog):
     @commands.command()
     @checks.has_permissions(PermissionLevel.OWNER)
     async def hotel(self, ctx):
-        """Request staff to the hotel easily."""
+        """Request staff to the Hotel easily."""
         channel = self.bot.get_channel(620497762072526879)
         embed = discord.Embed(
             title="Staff Request"
@@ -37,14 +37,14 @@ class neededStaff(commands.Cog):
     @commands.command()
     @checks.has_permissions(PermissionLevel.OWNER)
     async def training(self, ctx):
-        """Request staff to the hotel easily."""
+        """Request staff to the Training Center easily."""
         channel = self.bot.get_channel(620497762072526879)
         embed = discord.Embed(
             title="Staff Request"
         )
         embed.set_author(name=str(ctx.author), icon_url=str(ctx.author.avatar_url))
         embed.add_field(name="Information", value=f"Staff are needed at the Training Center! Please provide assistance if you could.", inline=False)
-        embed.add_field(name="Link", value=f"[Hotel](https://www.roblox.com/games/1474744297)", inline=False)
+        embed.add_field(name="Link", value=f"[Training Center](https://www.roblox.com/games/1474744297)", inline=False)
         embed.color = self.bot.main_color
         embed.timestamp=datetime.datetime.utcnow()
         embed.set_footer(text="Drizzle Systems")
