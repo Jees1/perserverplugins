@@ -18,6 +18,7 @@ class neededStaff(commands.Cog):
     @checks.has_permissions(PermissionLevel.OWNER)
     async def neededstaff(self, ctx):
         """Send the Privacy Policy of Drizzle Support"""
+        channel = self.bot.get_channel(620497762072526879)
         embed = discord.Embed(
             title="Staff Request"
         )
@@ -26,7 +27,7 @@ class neededStaff(commands.Cog):
                 Hey, Staff! We are in need of staff at the hotel. Coming and assisting will be greatly appreciated.
             """
         embed.color = self.bot.main_color
-        return await ctx.send("@here", embed=embed)
+        return await channel.send("@here", embed=embed)
 
 def setup(bot):
     bot.add_cog(neededStaff(bot))
