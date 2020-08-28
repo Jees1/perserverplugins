@@ -16,7 +16,7 @@ class StaffRequest(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    @checks.has_permissions(PermissionLevel.OWNER)
+    @commands.has_role('test')
     async def hotel(self, ctx):
         """Request staff to the Hotel easily."""
         channel = self.bot.get_channel(620497762072526879)
@@ -35,7 +35,7 @@ class StaffRequest(commands.Cog):
     
     
     @commands.command()
-    @checks.has_permissions(PermissionLevel.OWNER)
+    @commands.has_role('test')
     async def training(self, ctx):
         """Request staff to the Training Center easily."""
         channel = self.bot.get_channel(620497762072526879)
