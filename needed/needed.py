@@ -7,7 +7,7 @@ from core import checks
 from core.models import PermissionLevel
 
 
-class neededStaff(commands.Cog):
+class StaffRequest(commands.Cog):
     """
     Staff are needed at the hotel/training!
     """
@@ -54,4 +54,4 @@ class neededStaff(commands.Cog):
     
 
 def setup(bot):
-    bot.add_cog(neededStaff(bot))
+    bot.add_cog(StaffRequest(bot))
