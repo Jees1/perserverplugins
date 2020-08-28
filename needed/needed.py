@@ -28,6 +28,7 @@ class neededStaff(commands.Cog):
         embed.add_field(name="Link", value=f"[Hotel](https://www.roblox.com/games/1325088285)", inline=False)
         embed.color = self.bot.main_color
         embed.timestamp=datetime.datetime.utcnow()
+        embed.set_footer(text="Drizzle Systems |")
         embed.set_thumbnail(url="https://t5.rbxcdn.com/35d321e763a07069d09beebf4324f0fd")
         await ctx.send("<a:check:742680789262663710> | Staff successfully requested.")
         return await channel.send("@here", embed=embed)
