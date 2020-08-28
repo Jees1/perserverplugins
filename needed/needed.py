@@ -43,7 +43,7 @@ class neededStaff(commands.Cog):
             title="Staff Request"
         )
         embed.set_author(name=str(ctx.author), icon_url=str(ctx.author.avatar_url))
-        embed.add_field(name="Information", value=f"Staff are needed at the Training Center! Please come on down if you can.", inline=False)
+        embed.add_field(name="Information", value=f"Staff are needed at the Training Center! Please provide assistance if you could.", inline=False)
         embed.add_field(name="Link", value=f"[Hotel](https://www.roblox.com/games/1474744297)", inline=False)
         embed.color = self.bot.main_color
         embed.timestamp=datetime.datetime.utcnow()
