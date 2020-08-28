@@ -18,6 +18,8 @@ class neededStaff(commands.Cog):
     @checks.has_permissions(PermissionLevel.OWNER)
     async def neededstaff(self, ctx):
         """Send the Privacy Policy of Drizzle Support"""
+        emoji = '✅'
+        await message.add_reaction(emoji)
         channel = self.bot.get_channel(620497762072526879)
         embed = discord.Embed(
             title="Staff Request"
@@ -30,7 +32,6 @@ class neededStaff(commands.Cog):
         embed.add_field(name="Link", value=f"https://www.roblox.com/games/1325088285", inline=False)
         embed.color = self.bot.main_color
         return await channel.send("@here", embed=embed)
-        await message.add_reaction(✅)
 
 def setup(bot):
     bot.add_cog(neededStaff(bot))
