@@ -5,7 +5,7 @@ class MyCog(commands.Cog):
         self.bot = bot
 async def on_message(message):
     if "word" in message.content:
-          await message.channel.send("hi")
+          await channel.send("hi")
 
 def setup(bot):
     bot.add_cog(MyCog(bot))
