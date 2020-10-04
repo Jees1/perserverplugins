@@ -6,7 +6,7 @@ class MyCog(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        await message.channel.send(message.content)
+        message.channel.send(message.content)
 
 def setup(bot):
     bot.add_cog(MyCog(bot))
