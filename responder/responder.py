@@ -6,8 +6,8 @@ class MyCog(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if message.author != bot.user:
         if "happy birthday" in message.content.lower():
+          if message.author != bot.user:
           await message.channel.send("ye happy birthday")
 def setup(bot):
     bot.add_cog(MyCog(bot))
