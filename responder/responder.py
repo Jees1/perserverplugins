@@ -6,7 +6,7 @@ class MyCog(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if "word" in message.content.lower:
+        if "word" in message.content.lower():
           await message.channel.send("cool")
 
 def setup(bot):
