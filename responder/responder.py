@@ -6,7 +6,7 @@ class MyCog(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-if (message.author.bot):
+if message.author.bot:
         return
         if "cool" in message.content.lower():
           await message.channel.send("cool indeed")
