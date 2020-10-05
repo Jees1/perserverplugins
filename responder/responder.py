@@ -11,4 +11,4 @@ if (message.author.bot):
         if "cool" in message.content.lower():
           await message.channel.send("cool indeed")
 def setup(bot):
-    bots.add_cog(MyCog(bot))
+    bot.add_cog(MyCog(bot))
