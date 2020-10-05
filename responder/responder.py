@@ -1,7 +1,7 @@
 from discord.ext import commands
 
 class MyCog(commands.Cog):
-    def __init__(self, bot):
+    def __init__(self, bots):
         self.bot = bots
 
     @commands.Cog.listener()
