@@ -6,8 +6,8 @@ class MyCog(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if "word" in message.content.lower():
-          await message.channel.send("cool")
+        if "happy birthday" in message.content.lower():
+          await message.channel.send("ye happy birthday")
 
 def setup(bot):
     bot.add_cog(MyCog(bot))
