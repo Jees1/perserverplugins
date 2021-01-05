@@ -24,7 +24,7 @@ class Reports(commands.Cog):
         guestChannel = self.bot.get_channel(742712346312573020)
         texta = """**React with the type of your report:**
 1️⃣ | Staff Report
-2️⃣ | User Report
+2️⃣ | Guest Report
 ❌ | Cancel
 """
         
@@ -48,7 +48,7 @@ class Reports(commands.Cog):
         if str(reaction.emoji) == '1️⃣':
           await reactionmsg.clear_reactions()
 
-          text = "Alright, we'll do a staff report. What is the username of the user you're reporting? You have 2 minutes to reply."
+          text = "**Staff Report Selected**\nWhat is the username of the user you're reporting? You have 2 minutes to reply."
           await reactionmsg.edit(embed = discord.Embed(description=text, color=self.bot.main_color))
 
           try:
@@ -93,8 +93,42 @@ class Reports(commands.Cog):
           await reactionmsg.edit(embed = discord.Embed(description=text, color=3066993))
 
         if str(reaction.emoji) == '2️⃣':
-          text = "Alright, we'll do a normal user report. What is the username of the user you're reporting?"
+          await reactionmsg.clear_reactions()
+
+          text = "**Guest Report Selected**\nWhat is the username of the user you're reporting? You have 2 minutes to reply."
           await reactionmsg.edit(embed = discord.Embed(description=text, color=self.bot.main_color))
+
+          try:
+            username = await self.bot.wait_for('message', check=checkmsg, timeout=120)
+          except asyncio.TimeoutError:
+            
+            return await reactionmsg.edit(embed = embedTimeout)
+          await username.delete()
+          
+          text = "What is the reason for this report? You have 2 minutes to reply."
+          await reactionmsg.edit(embed = discord.Embed(description=text, color=self.bot.main_color,))
+
+          try:
+            reason = await self.bot.wait_for('message', check=checkmsg, timeout=120)
+          except asyncio.TimeoutError:
+            return await reactionmsg.edit(embed = embedTimeout)
+          await reason.delete()
+
+          text = "Please provide proof of this happening. You can upload a video/image or use a link to an image or video. The report will be sent right after. You have 10 minutes to reply."
+          await reactionmsg.edit(embed = discord.Embed(description=text, color=self.bot.main_color))
+
+          try:
+            proof = await self.bot.wait_for('message', check=checkmsg, timeout=600)
+          except asyncio.TimeoutError:
+            return await reactionmsg.edit(embed = embedTimeout)
+          my_files = [await x.to_file() for x in proof.attachments]
+          await proof.delete()
+
+          reportEmbed = discord.Embed(title="New Guest Report", description=f"Username: {username.content}\nReason: {reason.content}\nProof: {proof.content}", color=self.bot.main_color)
+
+          await staffChannel.send(embed = reportEmbed, files = my_files)
+          text = "✅ | The report has successfully been sent!"
+          await reactionmsg.edit(embed = discord.Embed(description=text, color=3066993))
 
         if str(reaction.emoji) == '❌':
           cancelEmbed = discord.Embed(description="❌ | Cancelled report", color=15158332)
