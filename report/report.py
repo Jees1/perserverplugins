@@ -87,8 +87,9 @@ class Reports(commands.Cog):
           await proof.delete()
 
           reportEmbed = discord.Embed(title="New Staff Report", description=f"Username: {username.content}\nRank: {rank.content}\nReason: {reason.content}\nProof: {proof.content}", color=self.bot.main_color)
+          reportEmbed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
 
-          await staffChannel.send(embed = reportEmbed, files = my_files)
+          await staffChannel.send(content="---------------------------", embed = reportEmbed, files = my_files)
           text = "The report has successfully been sent!"
           await reactionmsg.edit(embed = discord.Embed(description=text, color=3066993))
 
@@ -125,8 +126,8 @@ class Reports(commands.Cog):
           await proof.delete()
 
           reportEmbed = discord.Embed(title="New Guest Report", description=f"Username: {username.content}\nReason: {reason.content}\nProof: {proof.content}", color=self.bot.main_color)
-
-          await staffChannel.send(embed = reportEmbed, files = my_files)
+          reportEmbed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+          await guestChannel.send(content="---------------------------", embed = reportEmbed, files = my_files)
           text = "✅ | The report has successfully been sent!"
           await reactionmsg.edit(embed = discord.Embed(description=text, color=3066993))
 
