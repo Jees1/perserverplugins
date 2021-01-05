@@ -93,7 +93,7 @@ class Reports(commands.Cog):
           await reactionmsg.edit(embed = discord.Embed(description=text, color=3066993))
 
         if str(reaction.emoji) == '2️⃣':
-          text = "Alright, we'll do a normal user report. What is the username of the user you're reporting?")
+          text = "Alright, we'll do a normal user report. What is the username of the user you're reporting?"
           await reactionmsg.edit(embed = discord.Embed(description=text, color=self.bot.main_color))
 
         if str(reaction.emoji) == '❌':
