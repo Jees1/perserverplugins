@@ -66,7 +66,8 @@ class Suggest(commands.Cog):
           await reactionmsg.clear_reactions()
           for emoji in ('✅', '❌'):
             await sugmsg.add_reaction(emoji)
-        except discord.ext.commands.CommandOnCooldown
+        except discord.ext.commands.CommandOnCooldown:
+          print("cooldown")
 
 def setup(bot):
     bot.add_cog(Suggest(bot))

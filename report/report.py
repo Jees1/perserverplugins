@@ -145,7 +145,8 @@ class Reports(commands.Cog):
             cancelEmbed = discord.Embed(description="❌ | Cancelled report", color=15158332)
             await reactionmsg.edit(embed=cancelEmbed)
             return await reactionmsg.clear_reactions() 
-        except discord.ext.commands.CommandOnCooldown
+        except discord.ext.commands.CommandOnCooldown:
+          print("cooldown")
 
 def setup(bot):
     bot.add_cog(Reports(bot))

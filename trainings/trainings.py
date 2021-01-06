@@ -63,7 +63,8 @@ class Training(commands.Cog):
             asyncio.sleep(5)
             await msggg.edit(content=f"{training_mention} | msgID: {msggg.id}", embed=embed)
             await ctx.send("<a:check:742680789262663710> | Training announcement has been posted!")
-        except discord.ext.commands.CommandOnCooldown
+        except discord.ext.commands.CommandOnCooldown:
+            print("cooldown")
             
     @commands.command(aliases=["et"])
     @checks.has_permissions(PermissionLevel.OWNER)
