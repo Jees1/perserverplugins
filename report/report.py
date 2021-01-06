@@ -20,8 +20,8 @@ class Reports(commands.Cog):
         Report a player.
         """
 
-        staffChannel = self.bot.get_channel(742712457084272651)
-        guestChannel = self.bot.get_channel(742712346312573020)
+        staffChannel = self.bot.get_channel(686253307278393442)
+        guestChannel = self.bot.get_channel(686253328270884877)
         texta = """**React with the type of your report:**
 1️⃣ | Staff Report
 2️⃣ | Guest Report
@@ -90,7 +90,8 @@ class Reports(commands.Cog):
           reportEmbed.add_field(name="Username:", value=username.content)
           reportEmbed.add_field(name="Rank:", value=rank.content)
           reportEmbed.add_field(name="Reason:", value=reason.content)
-          reportEmbed.add_field(name="Proof:", value=proof.content)
+          if proof.content:
+            reportEmbed.add_field(name="Proof:", value=proof.content)
           reportEmbed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
 
           await staffChannel.send(content="---------------------------", embed = reportEmbed, files = my_files)
