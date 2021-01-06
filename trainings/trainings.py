@@ -40,29 +40,31 @@ class Training(commands.Cog):
     @commands.cooldown(1, 1800, commands.BucketType.user)
     async def training(self, ctx):
         """Host a training."""
-        config = await self.db.find_one({"_id": "config"})
-        training_channel = config["training_channel"]
-        setchannel = discord.utils.get(ctx.guild.channels, id=int(training_channel))
-        
         try:
-            training_mention = config["training_mention"]
-        except KeyError:
-            training_mention = ""
-        
-        embed = discord.Embed(description="Salutations, a training is currently being hosted at the Training Center! Come to the Training Center for a chance of a promotion!", timestamp=datetime.datetime.utcnow())
-        embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
-        embed.color = self.bot.main_color
-        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/633681171879952384/767355349870182430/image0.png")
-        embed.set_footer(text="Vinns Hotel")
-        
-        embed.add_field(name="Host:", value=f"{ctx.author.mention} | {ctx.author.name}#{ctx.author.discriminator} | {ctx.author.nick}", inline=False)
-        embed.add_field(name="Session Status:", value=f"Open", inline=False)
-        embed.add_field(name="Training Link:", value=f"Click [here](https://www.roblox.com/games/4780049434).", inline=False)
-
-        msggg = await setchannel.send(training_mention, embed=embed)
-        asyncio.sleep(5)
-        await msggg.edit(content=f"{training_mention} | msgID: {msggg.id}", embed=embed)
-        await ctx.send("<a:check:742680789262663710> | Training announcement has been posted!")
+            config = await self.db.find_one({"_id": "config"})
+            training_channel = config["training_channel"]
+            setchannel = discord.utils.get(ctx.guild.channels, id=int(training_channel))
+            
+            try:
+                training_mention = config["training_mention"]
+            except KeyError:
+                training_mention = ""
+            
+            embed = discord.Embed(description="Salutations, a training is currently being hosted at the Training Center! Come to the Training Center for a chance of a promotion!", timestamp=datetime.datetime.utcnow())
+            embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
+            embed.color = self.bot.main_color
+            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/633681171879952384/767355349870182430/image0.png")
+            embed.set_footer(text="Vinns Hotel")
+            
+            embed.add_field(name="Host:", value=f"{ctx.author.mention} | {ctx.author.name}#{ctx.author.discriminator} | {ctx.author.nick}", inline=False)
+            embed.add_field(name="Session Status:", value=f"Open", inline=False)
+            embed.add_field(name="Training Link:", value=f"Click [here](https://www.roblox.com/games/4780049434).", inline=False)
+            msggg = await setchannel.send(training_mention, embed=embed)
+            asyncio.sleep(5)
+            await msggg.edit(content=f"{training_mention} | msgID: {msggg.id}", embed=embed)
+            await ctx.send("<a:check:742680789262663710> | Training announcement has been posted!")
+        except discord.ext.commands.CommandOnCooldown:
+            await ctx.send(f"You are on cooldown! Try again in {retry_after} seconds.")
             
     @commands.command(aliases=["et"])
     @checks.has_permissions(PermissionLevel.OWNER)
