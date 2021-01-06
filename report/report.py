@@ -131,7 +131,7 @@ class Reports(commands.Cog):
 
           reportEmbed = discord.Embed(title="New Guest Report", color=self.bot.main_color)
           reportEmbed.add_field(name="Username:", value=username.content)
-          if proof.content == True:
+          if proof.content != "":
             reportEmbed.add_field(name="Proof:", value=proof.content)
           reportEmbed.add_field(name="Reason:", value=reason.content)
           reportEmbed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
