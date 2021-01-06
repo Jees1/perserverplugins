@@ -32,16 +32,20 @@ class Suggest(commands.Cog):
 <:studio:639558945584840743> | Training Center Suggestion
 ❌ | Cancel Command"""
         embed1 = discord.Embed(description=texta, color=self.bot.main_color)
-        reactionmsg = await ctx.send(embed = embed1)
+        reactionmsg = await ctx.send(content = f"<@!{ctx.author.id}>", embed = embed1)
         for emoji in ('<:Discord:795240449103233024>', '🏨', '<:studio:639558945584840743>', '❌'):
           await reactionmsg.add_reaction(emoji)
         suggestEmbed = discord.Embed(description=suggestion, color=self.bot.main_color)
         suggestEmbed.set_footer(text="Vinns Hotel Suggestions | -suggest")
         suggestEmbed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-        
+        embedTimeout = discord.Embed(description="❌ | You took too long! Command cancelled", color=15158332)
+
         def check(r, u):
           return u == ctx.author
-        reaction, user = await self.bot.wait_for("reaction_add", check=check)
+        try:
+          reaction, user = await self.bot.wait_for("reaction_add", check=check, timeout=60)
+        except asyncio.TimeoutError:
+          await reactionmsg.edit(embed = embedTimeout)
         if str(reaction.emoji) == '<:Discord:795240449103233024>':
           sugmsg = await discChannel.send(embed=suggestEmbed)
           editEmbed = discord.Embed(description=f"✅ | Successfully sent your suggestion to <#{discChannel.id}>", color=3066993)
