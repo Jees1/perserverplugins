@@ -40,29 +40,31 @@ class Shift(commands.Cog):
     @commands.cooldown(1, 1800, commands.BucketType.user)
     async def shift(self, ctx):
         """Host a shift."""
-        config = await self.db.find_one({"_id": "config"})
-        shift_channel = config["shift_channel"]
-        setchannel = discord.utils.get(ctx.guild.channels, id=int(shift_channel))
-        
         try:
-            shift_mention = config["shift_mention"]
-        except KeyError:
-            shift_mention = ""
-        
-        embed = discord.Embed(description="Salutations, a shift is currently being hosted at the hotel! Come to the hotel for a nice and comfy room! Active staff may get a chance of promotion.", timestamp=datetime.datetime.utcnow())
-        embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
-        embed.color = self.bot.main_color
-        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/633681171879952384/767355349870182430/image0.png")
-        embed.set_footer(text="Vinns Hotel")
-        
-        embed.add_field(name="Host:", value=f"{ctx.author.mention} | {ctx.author.name}#{ctx.author.discriminator} | {ctx.author.nick}", inline=False)
-        embed.add_field(name="Session Status:", value=f"On-going", inline=False)
-        embed.add_field(name="Hotel Link:", value=f"Click [here](https://www.roblox.com/games/4766198689/Vinns-Hotels-and-Resorts-V1#).", inline=False)
+            config = await self.db.find_one({"_id": "config"})
+            shift_channel = config["shift_channel"]
+            setchannel = discord.utils.get(ctx.guild.channels, id=int(shift_channel))
+            
+            try:
+                shift_mention = config["shift_mention"]
+            except KeyError:
+                shift_mention = ""
+            
+            embed = discord.Embed(description="Salutations, a shift is currently being hosted at the hotel! Come to the hotel for a nice and comfy room! Active staff may get a chance of promotion.", timestamp=datetime.datetime.utcnow())
+            embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
+            embed.color = self.bot.main_color
+            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/633681171879952384/767355349870182430/image0.png")
+            embed.set_footer(text="Vinns Hotel")
+            
+            embed.add_field(name="Host:", value=f"{ctx.author.mention} | {ctx.author.name}#{ctx.author.discriminator} | {ctx.author.nick}", inline=False)
+            embed.add_field(name="Session Status:", value=f"On-going", inline=False)
+            embed.add_field(name="Hotel Link:", value=f"Click [here](https://www.roblox.com/games/4766198689/Vinns-Hotels-and-Resorts-V1#).", inline=False)
 
-        msggg = await setchannel.send(shift_mention, embed=embed)
-        asyncio.sleep(5)
-        await msggg.edit(content=f"{shift_mention} | msgID: {msggg.id}", embed=embed)
-        await ctx.send("<a:check:742680789262663710> | Shift announcement has been posted!")
+            msggg = await setchannel.send(shift_mention, embed=embed)
+            asyncio.sleep(5)
+            await msggg.edit(content=f"{shift_mention} | msgID: {msggg.id}", embed=embed)
+            await ctx.send("<a:check:742680789262663710> | Shift announcement has been posted!")
+        except discord.ext.commands.CommandOnCooldown
             
     @commands.command(aliases=["es"])
     @checks.has_permissions(PermissionLevel.OWNER)
