@@ -31,7 +31,7 @@ class Reports(commands.Cog):
         embedTimeout = discord.Embed(description="❌ | You took too long! Command cancelled", color=15158332)
         embed1 = discord.Embed(description=texta, color=self.bot.main_color)
         embed1.set_footer(text="React with ❌ to cancel")
-        reactionmsg = await ctx.send(content = f"<@!{ctx.author.id}>",embed = embed1)
+        reactionmsg = await ctx.send(content = f"<@!{ctx.author.id}>", embed = embed1)
         for emoji in ('1️⃣', '2️⃣', '❌'):
           await reactionmsg.add_reaction(emoji)
         
